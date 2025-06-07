@@ -1,0 +1,26 @@
+[
+  {
+    "id": "job001",
+    "title": "Senior Python Developer",
+    "description": "We are seeking an experienced Python Developer to join our dynamic team. The ideal candidate will be responsible for developing and maintaining high-quality software applications, working on complex backend systems, and contributing to all phases of the development lifecycle. Experience with microservices, cloud platforms (AWS/Azure), and containerization technologies (Docker/Kubernetes) is highly desirable. Strong problem-solving skills and ability to work in a collaborative environment are essential.",
+    "skills": ["Python", "Django", "Flask", "FastAPI", "RESTful APIs", "Microservices", "AWS", "Docker", "PostgreSQL"],
+    "location": "New York, NY",
+    "salary": "120,000 - 150,000 USD"
+  },
+  {
+    "id": "job002",
+    "title": "Frontend Developer (React)",
+    "description": "Join our innovative frontend team to build responsive and engaging user interfaces. You will work closely with UI/UX designers and backend developers to create seamless user experiences. Must be proficient in React.js, Redux (or similar state management), HTML5, CSS3, and JavaScript (ES6+). Experience with TypeScript, GraphQL, and modern frontend build pipelines (Webpack, Babel) is a plus.",
+    "skills": ["React.js", "Redux", "JavaScript", "HTML5", "CSS3", "TypeScript", "GraphQL", "Webpack", "UI/UX Design Principles"],
+    "location": "Remote",
+    "salary": "90,000 - 110,000 USD"
+  },
+  {
+    "id": "job003",
+    "title": "Data Scientist - NLP Specialist",
+    "description": "We are looking for a Data Scientist specializing in Natural Language Processing (NLP) to help us extract insights from text data. Responsibilities include developing NLP models for text classification, entity extraction, sentiment analysis, and topic modeling. Strong background in machine learning, deep learning (TensorFlow/PyTorch), and Python libraries such as spaCy, NLTK, and scikit-learn is required. PhD or Master's in a relevant field preferred.",
+    "skills": ["Python", "NLP", "Machine Learning", "Deep Learning", "TensorFlow", "PyTorch", "spaCy", "NLTK", "scikit-learn", "Text Mining"],
+    "location": "San Francisco, CA",
+    "salary": "130,000 - 160,000 USD"
+  }
+]

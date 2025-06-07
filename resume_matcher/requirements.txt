@@ -1,0 +1,34 @@
+# Core Libraries
+pandas
+numpy
+scikit-learn
+
+# PDF and DOCX Processing
+PyMuPDF==1.23.26 # For fitz, PDF text extraction
+docx2txt
+
+# NLP and Embeddings
+spacy==3.7.4 # For text parsing
+# After installing spacy, download the model: python -m spacy download en_core_web_sm
+sentence-transformers==2.7.0 # For sentence embeddings
+torch==2.2.2+cpu --index-url https://download.pytorch.org/whl/cpu # For PyTorch (CPU version)
+joblib # For caching embeddings
+
+# API and Web Server
+fastapi==0.110.0
+uvicorn[standard]==0.29.0 # For serving FastAPI
+python-multipart # For FastAPI form data (good to have)
+pydantic # Data validation for FastAPI
+
+# Visualization
+matplotlib==3.8.3
+seaborn==0.13.2
+
+# Frontend
+streamlit==1.32.2
+requests # For Streamlit to call FastAPI backend
+
+# Note on spaCy model:
+# The 'en_core_web_sm' model is used by resume_parser.py.
+# It needs to be downloaded separately after installing spacy:
+# python -m spacy download en_core_web_sm

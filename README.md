@@ -30,25 +30,25 @@ This project is a web-based job matching platform built with Python, Flask, and 
 ## Setup Instructions
 
 1.  **Clone the Repository (if applicable)**:
-    \`\`\`bash
+    ```bash
     git clone <repository-url>
     cd <repository-directory>
-    \`\`\`
+    ```
 
 2.  **Create and Activate a Virtual Environment (Recommended)**:
-    \`\`\`bash
+    ```bash
     python -m venv venv
     # On Windows
     venv\Scripts\activate
     # On macOS/Linux
     source venv/bin/activate
-    \`\`\`
+    ```
 
 3.  **Install Dependencies**:
     Navigate to the `resume_matcher` directory (if your `requirements.txt` is there) or ensure your `requirements.txt` is at the project root. The current setup has `resume_matcher/requirements.txt`.
-    \`\`\`bash
+    ```bash
     pip install -r resume_matcher/requirements.txt
-    \`\`\`
+    ```
 
 4.  **Download spaCy NLP Model**:
     The resume parser uses a spaCy model. Download it by running:
@@ -59,7 +59,7 @@ This project is a web-based job matching platform built with Python, Flask, and 
 ## Directory Structure
 
 
-\`\`\`
+```
 .
 ├── app.py                      # Main Flask application
 ├── job_posts.csv               # Sample CSV for HR job uploads (place in root)
@@ -87,7 +87,7 @@ This project is a web-based job matching platform built with Python, Flask, and 
 │   ├── candidate_upload.html   # Candidate resume upload form
 │   └── candidate_matches.html  # Candidate view of jobs for their resume
 └── uploads/                    # Temporary storage for uploaded files (e.g., CSVs)
-\`\`\`
+```
 
 ## Running the Application
 
@@ -95,9 +95,9 @@ This project is a web-based job matching platform built with Python, Flask, and 
 2.  Make sure your virtual environment is activated.
 3.  Run the Flask development server:
 
-    \`\`\`bash
+    ```bash
     python app.py
-    \`\`\`
+    ```
 
 4.  Open your web browser and navigate to `http://localhost:8000` (or `http://0.0.0.0:8000`).
 

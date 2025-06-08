@@ -1,0 +1,6 @@
+job_id,title,description,skills,location,salary
+job001,"Software Engineer","Develop web applications using Python and Flask.","Python,Flask,HTML,CSS,JavaScript","New York, NY","$100,000 - $120,000"
+job002,"Data Scientist","Analyze data and build machine learning models.","Python,Pandas,NumPy,Scikit-learn,TensorFlow","San Francisco, CA","$120,000 - $150,000"
+job003,"Frontend Developer","Build user interfaces using React.","React,JavaScript,HTML,CSS,Redux","Remote","$90,000 - $110,000"
+job004,"DevOps Engineer","Manage CI/CD pipelines and cloud infrastructure.","Docker,Kubernetes,AWS,Jenkins,Terraform","Austin, TX","$110,000 - $140,000"
+job005,"Product Manager","Define product vision and strategy.","Agile,Scrum,JIRA,Roadmapping,Market Research","Boston, MA","$130,000 - $160,000"

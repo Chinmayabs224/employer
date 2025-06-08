@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HR Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
+        .container { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 700px; margin: auto; }
+        h1 { text-align: center; color: #333; }
+        .nav-links a { margin-right: 15px; background-color: #007bff; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px;}
+        .nav-links a:hover { background-color: #0056b3; }
+        .info { margin-top: 20px; padding: 15px; background-color: #e9ecef; border-radius: 5px; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p><a href="{{ url_for('index') }}">&larr; Home</a></p>
+        <h1>HR Dashboard</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <ul class="flash-messages" style="list-style-type: none; padding: 0;">
+            {% for category, message in messages %}
+              <li style="padding: 10px; margin-bottom: 10px; border-radius: 4px; background-color: #d4edda; color: #155724;">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          {% endif %}
+        {% endwith %}
+
+        <div class="nav-links">
+            <a href="{{ url_for('hr_upload_form') }}">Upload New Jobs CSV</a>
+            <a href="{{ url_for('hr_view_matches') }}">View/Match Jobs</a>
+        </div>
+
+        <div class="info">
+            <p>Currently, there are <strong>{{ jobs_count }}</strong> job(s) loaded in the system.</p>
+        </div>
+    </div>
+</body>
+</html>

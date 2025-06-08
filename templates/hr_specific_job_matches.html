@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Matches for {{ job_details.title }}</title>
+     <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
+        .container { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 1000px; margin: auto; } /* Increased max-width */
+        h1, h2 { text-align: center; color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; table-layout: fixed; } /* Added table-layout */
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; word-wrap: break-word; } /* Added word-wrap */
+        th { background-color: #007bff; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        .skills-list { list-style-type: none; padding: 0; }
+        .skills-list li { display: inline-block; background-color: #e0e0e0; color: #333; padding: 3px 8px; margin: 2px; border-radius: 3px; font-size: 0.9em; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .no-matches { text-align: center; padding: 20px; background-color: #fefefe; border: 1px dashed #ccc; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p><a href="{{ url_for('hr_view_matches') }}">&larr; Back to Jobs Overview</a> | <a href="{{ url_for('index') }}">&larr; Home</a></p>
+        <h1>Matches for Job: {{ job_details.title }} (ID: {{ job_id }})</h1>
+        <p><strong>Description:</strong> {{ job_details.description }}</p>
+        <p><strong>Required Skills:</strong> {{ job_details.skills|join(', ') }}</p>
+        <p><strong>Location:</strong> {{ job_details.location }}</p>
+
+        <h2>Top Candidate Matches</h2>
+        {% if matches %}
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:15%;">Resume File</th>
+                        <th style="width:15%;">Candidate Name</th>
+                        <th style="width:10%;">Match Score</th>
+                        <th style="width:10%;">Semantic Sim.</th>
+                        <th style="width:10%;">Skill Overlap</th>
+                        <th style="width:10%;">Location Match</th>
+                        <th style="width:15%;">Resume Skills</th>
+                        <th style="width:15%;">Job Skills Not In Resume</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for match in matches %}
+                    <tr>
+                        <td>{{ match.filename }}</td>
+                        <td>{{ match.candidate_name }}</td>
+                        <td>{{ "%.2f"|format(match.final_match_score * 100) }}%</td>
+                        <td>{{ "%.2f"|format(match.semantic_similarity_score * 100) }}%</td>
+                        <td>{{ "%.2f"|format(match.skill_overlap_score * 100) }}%</td>
+                        <td>{% if match.location_match %}Yes{% else %}No{% endif %}</td>
+                        <td>
+                            {% if match.resume_skills %}
+                                <ul class="skills-list">
+                                {% for skill in match.resume_skills %}<li>{{ skill }}</li>{% endfor %}
+                                </ul>
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if match.job_skills_not_in_resume %}
+                                <ul class="skills-list">
+                                {% for skill in match.job_skills_not_in_resume %}<li>{{ skill }}</li>{% endfor %}
+                                </ul>
+                            {% elif match.job_skills_not_in_resume == [] %}
+                                All job skills present.
+                            {% else %}
+                                N/A
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="no-matches">
+                <p>No resumes processed or no suitable matches found for this job yet.</p>
+                <p>Ensure resumes are available in the system.</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

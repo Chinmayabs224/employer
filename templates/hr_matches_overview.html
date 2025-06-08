@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HR - Job Matches Overview</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
+        .container { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); max-width: 900px; margin: auto; }
+        h1 { text-align: center; color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #007bff; color: white; }
+        tr:nth-child(even) { background-color: #f2f2f2; }
+        a { color: #007bff; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .no-jobs { text-align: center; padding: 20px; background-color: #fefefe; border: 1px dashed #ccc; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p><a href="{{ url_for('hr_index') }}">&larr; HR Dashboard</a> | <a href="{{ url_for('index') }}">&larr; Home</a></p>
+        <h1>Job Postings Overview</h1>
+        {% if jobs %}
+            <p>Select a job to view detailed matches. Currently, <strong>{{ jobs|length }}</strong> job(s) loaded.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Job ID</th>
+                        <th>Title</th>
+                        <th>Skills</th>
+                        <th>Location</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for job_id, job_info in jobs.items() %}
+                    <tr>
+                        <td>{{ job_id }}</td>
+                        <td>{{ job_info.details.title }}</td>
+                        <td>{{ job_info.details.skills|join(', ') }}</td>
+                        <td>{{ job_info.details.location }}</td>
+                        <td><a href="{{ url_for('hr_get_specific_job_matches', job_id=job_id) }}">View Matches</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="no-jobs">
+                <p>No jobs have been uploaded yet.</p>
+                <p><a href="{{ url_for('hr_upload_form') }}">Upload Jobs CSV</a></p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>

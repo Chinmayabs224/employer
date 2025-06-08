@@ -14,19 +14,12 @@ sentence-transformers==2.7.0 # For sentence embeddings
 torch==2.2.2+cpu --index-url https://download.pytorch.org/whl/cpu # For PyTorch (CPU version)
 joblib # For caching embeddings
 
-# API and Web Server
-fastapi==0.110.0
-uvicorn[standard]==0.29.0 # For serving FastAPI
-python-multipart # For FastAPI form data (good to have)
-pydantic # Data validation for FastAPI
+# Web Framework
+Flask==3.0.2 # Added Flask
 
-# Visualization
+# Visualization (optional, but matcher.py uses them)
 matplotlib==3.8.3
 seaborn==0.13.2
-
-# Frontend
-streamlit==1.32.2
-requests # For Streamlit to call FastAPI backend
 
 # Note on spaCy model:
 # The 'en_core_web_sm' model is used by resume_parser.py.

@@ -1,0 +1,11 @@
+resume_id,job_id,label
+res1,job1,1
+res2,job1,0
+res3,job2,0
+res4,job2,1
+res5,job1,1
+res6,job2,0
+res7,job3,1
+res8,job3,0
+res9,job1,0
+res10,job3,1

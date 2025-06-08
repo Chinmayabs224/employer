@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Matching Platform</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
+        .container { max-width: 800px; margin: 50px auto; padding: 20px; background-color: #fff; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; }
+        h1 { color: #333; }
+        .navigation-links a { display: inline-block; margin: 10px; padding: 15px 25px; background-color: #007bff; color: white; text-decoration: none; border-radius: 5px; font-size: 16px; }
+        .navigation-links a:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Job Matching Platform</h1>
+        <p>Find your dream job or the perfect candidate.</p>
+        <div class="navigation-links">
+            <a href="{{ url_for('candidate_upload_form') }}">For Candidates</a>
+            <a href="{{ url_for('hr_upload_form') }}">For HR Professionals</a>
+        </div>
+    </div>
+</body>
+</html>

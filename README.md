@@ -58,6 +58,7 @@ This project is a web-based job matching platform built with Python, Flask, and 
 
 ## Directory Structure
 
+
 \`\`\`
 .
 ├── app.py                      # Main Flask application
@@ -93,9 +94,11 @@ This project is a web-based job matching platform built with Python, Flask, and 
 1.  Ensure you are in the project root directory (where `app.py` is located).
 2.  Make sure your virtual environment is activated.
 3.  Run the Flask development server:
+
     \`\`\`bash
     python app.py
     \`\`\`
+
 4.  Open your web browser and navigate to `http://localhost:8000` (or `http://0.0.0.0:8000`).
 
 ## How to Use
